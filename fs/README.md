@@ -21,6 +21,9 @@
 + 改变文件和文件夹的所有者和群组  
   - fs.chown(path, uid, gid, callback)  
   - fs.chownSync(path, uid, gid) 
++ mac 下的chmod 
+  - fs.lchmod(path, mode, callback)  
+  - fs.lchmodSync(path, mode) 
 
 + 改变文件的所有者和群组
   - fs.fchown(fd, uid, gid, callback)  
@@ -48,17 +51,25 @@
 + 仅仅在必要的情况下才会同步metadata  
   - fs.fdatasync(fd, callback)  
   - fs.fdatasyncSync(fd)  
+
 + 查看文件状态
   - fs.fstat(fd, callback)  
-fs.fstatSync(fd)  
-fs.fsync(fd, callback)  
-fs.fsyncSync(fd)  
-fs.ftruncate(fd[, len], callback)  
-fs.ftruncateSync(fd[, len])  
-fs.futimes(fd, atime, mtime, callback)  
-fs.futimesSync(fd, atime, mtime)  
-fs.lchmod(path, mode, callback)  
-fs.lchmodSync(path, mode)  
+  - fs.fstatSync(fd)
+  - fs.fsync(fd, callback)  
+  - fs.fsyncSync(fd) 
+
++ 截取文件前len个字符
+  - fs.ftruncate(fd[, len], callback)  
+  - fs.ftruncateSync(fd[, len])  
+
++ 改变 path 所指向的对象的文件系统时间戳。  
+  - fs.utimes(path, atime, mtime, callback)  
+  - fs.utimesSync(path, atime, mtime) 
++ 改变 path 所指向的文件的文件系统时间戳
+  - fs.futimes(fd, atime, mtime, callback)  
+  - fs.futimesSync(fd, atime, mtime) 
+
+ 
 fs.lchown(path, uid, gid, callback)  
 fs.lchownSync(path, uid, gid)  
 fs.link(existingPath, newPath, callback)  
@@ -91,11 +102,12 @@ fs.symlink(target, path[, type], callback)
 fs.symlinkSync(target, path[, type])  
 fs.truncate(path[, len], callback)  
 fs.truncateSync(path[, len])  
-fs.unlink(path, callback)  
-fs.unlinkSync(path)  
-fs.unwatchFile(filename[, listener])  
-fs.utimes(path, atime, mtime, callback)  
-fs.utimesSync(path, atime, mtime)  
+
+  - fs.unlink(path, callback)  
+  - fs.unlinkSync(path)  
+
+fs.unwatchFile(filename[, listener]) 
+ 
 fs.watch(filename[, options][, listener])  
 说明  
 可用性  
