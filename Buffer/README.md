@@ -1,5 +1,5 @@
 # overview    
- **没有读取或操作二进制数据流的机制**    
+ **一种读取或操作二进制数据流的机制**    
  **Buffer 类在 Node.js 中是一个全局变量，因此无需使用 require('buffer').Buffer。**  
   
 Buffer.from(), Buffer.alloc(), and Buffer.allocUnsafe()    
