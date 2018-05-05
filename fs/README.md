@@ -78,29 +78,43 @@
   - fs.futimesSync(fd, atime, mtime) 
 
  
-+ 
-fs.link(existingPath, newPath, callback)  
-fs.linkSync(existingPath, newPath)  
++ linux 的link操作
+  - fs.link(existingPath, newPath, callback)  
+  - fs.linkSync(existingPath, newPath)  
+
+
 fs.lstat(path, callback)  
 fs.lstatSync(path)  
++ 创建目录
 fs.mkdir(path[, mode], callback)  
 fs.mkdirSync(path[, mode])  
++ 创建临时目录 返回一个文件名
 fs.mkdtemp(prefix[, options], callback)  
 fs.mkdtempSync(prefix[, options])  
+
++ 打开文件
 fs.open(path, flags[, mode], callback)  
 fs.openSync(path, flags[, mode])  
-fs.read(fd, buffer, offset, length, position, callback)  
-fs.readdir(path[, options], callback)  
-fs.readdirSync(path[, options])  
-fs.readFile(path[, options], callback)  
-fs.readFileSync(path[, options])  
-fs.readlink(path[, options], callback)  
-fs.readlinkSync(path[, options])  
-fs.readSync(fd, buffer, offset, length, position)  
-fs.realpath(path[, options], callback)  
-fs.realpathSync(path[, options])  
-fs.rename(oldPath, newPath, callback)  
-fs.renameSync(oldPath, newPath)  
+
++ 读取文件  
+  - fs.read(fd, buffer, offset, length, position, callback)  
+  - fs.readSync(fd, buffer, offset, length, position)  
++ 读取目录 
+  - fs.readdir(path[, options], callback)  
+  - fs.readdirSync(path[, options])  
++ 地读取一个文件的全部内容
+  - fs.readFile(path[, options], callback)  
+  - fs.readFileSync(path[, options])  
++ 读取符号链接的字符串值
+  - fs.readlink(path[, options], callback)  
+  - fs.readlinkSync(path[, options])  
++ 返回文件的绝对路径  
+  - fs.realpath(path[, options], callback)  
+  - fs.realpathSync(path[, options])  
++ 重命名
+  - fs.rename(oldPath, newPath, callback)  
+  - fs.renameSync(oldPath, newPath)  
+  
 fs.rmdir(path, callback)  
 fs.rmdirSync(path)  
 fs.stat(path, callback)  
