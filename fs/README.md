@@ -10,34 +10,46 @@
   - fs.appendFile(file, data[, options], callback)  
   - fs.appendFileSync(file, data[, options])  
 
-+ 改变文件的权限,文件的权限可以参考具体文档  
++ 改变文件或文件夹的权限,文件的权限可以参考具体文档  
   - fs.chmod(path, mode, callback)  
-  - File modes  
-  - fs.chmodSync(path, mode)  
+  - fs.chmodSync(path, mode) 
 
-+ 改变文件的所有者和群组  
++ 更改文件权限,文件的权限可以参考具体文档  
+  - fs.fchmod(fd, mode, callback)  
+  - fs.fchmodSync(fd, mode)   
+
++ 改变文件和文件夹的所有者和群组  
   - fs.chown(path, uid, gid, callback)  
   - fs.chownSync(path, uid, gid) 
+
++ 改变文件的所有者和群组
+  - fs.fchown(fd, uid, gid, callback)  
+  - fs.fchownSync(fd, uid, gid)  
 
 + 关闭文件  
   - fs.close(fd, callback)  
   - fs.closeSync(fd)  
 
 + 返回一个包含常用文件系统操作的常量的对象  
-fs.constants  
-fs.copyFile(src, dest[, flags], callback)  
-fs.copyFileSync(src, dest[, flags])  
-fs.createReadStream(path[, options])  
-fs.createWriteStream(path[, options])  
-fs.exists(path, callback)  
-fs.existsSync(path)  
-fs.fchmod(fd, mode, callback)  
-fs.fchmodSync(fd, mode)  
-fs.fchown(fd, uid, gid, callback)  
-fs.fchownSync(fd, uid, gid)  
-fs.fdatasync(fd, callback)  
-fs.fdatasyncSync(fd)  
-fs.fstat(fd, callback)  
+  - fs.constants  
+
++ 将 src 拷贝到 dest  
+  - fs.copyFile(src, dest[, flags], callback)  
+  - fs.copyFileSync(src, dest[, flags])  
+
++ 返回一个新建的 WriteStream 对象（详见可写流)  
+  - fs.createReadStream(path[, options])  
+  - fs.createWriteStream(path[, options])  
+
++ 检查文件系统来测试给定的路径是否存在
+  - fs.exists(path, callback)  (废弃了，使用fs.stat() 或fs.access()) 
+  - fs.existsSync(path)  
+
++ 仅仅在必要的情况下才会同步metadata  
+  - fs.fdatasync(fd, callback)  
+  - fs.fdatasyncSync(fd)  
++ 
+  - fs.fstat(fd, callback)  
 fs.fstatSync(fd)  
 fs.fsync(fd, callback)  
 fs.fsyncSync(fd)  
