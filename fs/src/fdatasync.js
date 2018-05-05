@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-fs.open('./resource/json.json', 'a', (error, fd) => {
+fs.open('../resource/json.json', 'a', (error, fd) => {
     if (error) {
         throw error;
     }

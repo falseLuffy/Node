@@ -6,6 +6,6 @@ fs.readFile('./resource/132.html',(err, data) => {
 })
 */
 
-let json = fs.readFileSync('./resource/json.json');
+let json = fs.readFileSync('../resource/json.json');
 
 console.log(json.toString())
