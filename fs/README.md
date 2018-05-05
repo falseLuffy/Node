@@ -78,7 +78,7 @@
   - fs.futimesSync(fd, atime, mtime) 
 
  
-
++ 
 fs.link(existingPath, newPath, callback)  
 fs.linkSync(existingPath, newPath)  
 fs.lstat(path, callback)  
