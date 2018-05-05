@@ -82,19 +82,21 @@
   - fs.link(existingPath, newPath, callback)  
   - fs.linkSync(existingPath, newPath)  
 
++ 查看文件信息
+  - fs.lstat(path, callback)  
+  - fs.lstatSync(path)  
 
-fs.lstat(path, callback)  
-fs.lstatSync(path)  
 + 创建目录
-fs.mkdir(path[, mode], callback)  
-fs.mkdirSync(path[, mode])  
+  - fs.mkdir(path[, mode], callback)  
+  - fs.mkdirSync(path[, mode])  
+
 + 创建临时目录 返回一个文件名
-fs.mkdtemp(prefix[, options], callback)  
-fs.mkdtempSync(prefix[, options])  
+  - fs.mkdtemp(prefix[, options], callback)  
+  - fs.mkdtempSync(prefix[, options])  
 
 + 打开文件
-fs.open(path, flags[, mode], callback)  
-fs.openSync(path, flags[, mode])  
+  - fs.open(path, flags[, mode], callback)  
+  - fs.openSync(path, flags[, mode])  
 
 + 读取文件  
   - fs.read(fd, buffer, offset, length, position, callback)  
@@ -115,24 +117,26 @@ fs.openSync(path, flags[, mode])
   - fs.rename(oldPath, newPath, callback)  
   - fs.renameSync(oldPath, newPath)  
 + 删除目录
-fs.rmdir(path, callback)  
-fs.rmdirSync(path)
+  - fs.rmdir(path, callback)  
+  - fs.rmdirSync(path)
 
 + 查看文件或目录的信息  
   - fs.stat(path, callback)  
   - fs.statSync(path)  
 
-fs.symlink(target, path[, type], callback)  
-fs.symlinkSync(target, path[, type])  
++ 不知道功能
+  - fs.symlink(target, path[, type], callback)  
+  - fs.symlinkSync(target, path[, type])  
 
 + 截取文件 
-fs.truncate(path[, len], callback)  
-fs.truncateSync(path[, len])  
+  - fs.truncate(path[, len], callback)  
+  - fs.truncateSync(path[, len])  
 
++ unlink 
   - fs.unlink(path, callback)  
   - fs.unlinkSync(path)  
 
-+ 删除对文件的watch
++ 删除对文件的watch 
   - fs.unwatchFile(filename[, listener]) 
 
 + 监视 filename 的变化，filename 可以是一个文件或一个目录。
