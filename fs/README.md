@@ -6,7 +6,7 @@
   - fs.access(path[, mode], callback)  
   - fs.accessSync(path[, mode])  
   
-+ 异步地追加数据到一个文件，如果文件不存在则创建文件
++ 追加数据到一个文件，如果文件不存在则创建文件
   - fs.appendFile(file, data[, options], callback)  
   - fs.appendFileSync(file, data[, options])  
 
@@ -33,7 +33,7 @@
 + 返回一个包含常用文件系统操作的常量的对象  
   - fs.constants  
 
-+ 将 src 拷贝到 dest  
++ 将 src 拷贝到 dest中  
   - fs.copyFile(src, dest[, flags], callback)  
   - fs.copyFileSync(src, dest[, flags])  
 
@@ -48,7 +48,7 @@
 + 仅仅在必要的情况下才会同步metadata  
   - fs.fdatasync(fd, callback)  
   - fs.fdatasyncSync(fd)  
-+ 
++ 查看文件状态
   - fs.fstat(fd, callback)  
 fs.fstatSync(fd)  
 fs.fsync(fd, callback)  
