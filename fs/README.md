@@ -114,35 +114,49 @@ fs.openSync(path, flags[, mode])
 + 重命名
   - fs.rename(oldPath, newPath, callback)  
   - fs.renameSync(oldPath, newPath)  
-  
++ 删除目录
 fs.rmdir(path, callback)  
-fs.rmdirSync(path)  
-fs.stat(path, callback)  
-fs.statSync(path)  
+fs.rmdirSync(path)
+
++ 查看文件或目录的信息  
+  - fs.stat(path, callback)  
+  - fs.statSync(path)  
+
 fs.symlink(target, path[, type], callback)  
 fs.symlinkSync(target, path[, type])  
+
++ 截取文件 
 fs.truncate(path[, len], callback)  
 fs.truncateSync(path[, len])  
 
   - fs.unlink(path, callback)  
   - fs.unlinkSync(path)  
 
-fs.unwatchFile(filename[, listener]) 
- 
-fs.watch(filename[, options][, listener])  
++ 删除对文件的watch
+  - fs.unwatchFile(filename[, listener]) 
+
++ 监视 filename 的变化，filename 可以是一个文件或一个目录。
+  - fs.watch(filename[, options][, listener])   
+
 说明  
 可用性  
 索引节点  
 文件名参数  
-fs.watchFile(filename[, options], listener)  
-fs.write(fd, buffer[, offset[, length[, position]]], callback)  
-fs.write(fd, string[, position[, encoding]], callback)  
-fs.writeFile(file, data[, options], callback)  
-fs.writeFileSync(file, data[, options])  
-fs.writeSync(fd, buffer[, offset[, length[, position]]])  
-fs.writeSync(fd, string[, position[, encoding]])  
-fs 常量  
-文件访问常量  
-文件打开常量  
-文件类型常量  
-文件模式常量
++ 监视文件的变化
+  - fs.watchFile(filename[, options], listener) 
++ 写文件
+  - fs.write(fd, buffer[, offset[, length[, position]]], callback)  
+  - fs.write(fd, string[, position[, encoding]], callback)  
++ 写文件
+  - fs.writeFile(file, data[, options], callback)  
+  - fs.writeFileSync(file, data[, options])  
+  - fs.writeSync(fd, buffer[, offset[, length[, position]]])  
+  - fs.writeSync(fd, string[, position[, encoding]])  
+
+  [//]:# (www.baidu.com)
+
+### fs 常量  
+### 文件访问常量  
+### 文件打开常量  
+### 文件类型常量  
+### 文件模式常量
