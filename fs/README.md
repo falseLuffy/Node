@@ -1,5 +1,6 @@
 # overview 
    文件 I/O 是对标准 POSIX 函数的简单封装。 通过 require('fs') 使用该模块。 所有的方法都有异步和同步的形式。   
+
   **该文档只写API的粗略功能，具体功能还是要查看[nodejs 官方文档](http://nodejs.cn/api/fs.html)**
 
 + 测试 path 指定的文件或目录的mode指定的用户权限，成功时无动作，失败是返回错误信息，同步方法需要用try catch捕捉；
@@ -18,12 +19,19 @@
   - fs.fchmod(fd, mode, callback)  
   - fs.fchmodSync(fd, mode)   
 
-+ 改变文件和文件夹的所有者和群组  
-  - fs.chown(path, uid, gid, callback)  
-  - fs.chownSync(path, uid, gid) 
 + mac 下的chmod 
   - fs.lchmod(path, mode, callback)  
   - fs.lchmodSync(path, mode) 
+
++ 改变文件和文件夹的所有者和群组  
+  - fs.chown(path, uid, gid, callback)  
+  - fs.chownSync(path, uid, gid) 
+
++ mac 下的chown 
+  - fs.lchown(path, uid, gid, callback)  
+  - fs.lchownSync(path, uid, gid)  
+
+  
 
 + 改变文件的所有者和群组
   - fs.fchown(fd, uid, gid, callback)  
@@ -70,8 +78,7 @@
   - fs.futimesSync(fd, atime, mtime) 
 
  
-fs.lchown(path, uid, gid, callback)  
-fs.lchownSync(path, uid, gid)  
+
 fs.link(existingPath, newPath, callback)  
 fs.linkSync(existingPath, newPath)  
 fs.lstat(path, callback)  
