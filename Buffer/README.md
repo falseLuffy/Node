@@ -2,8 +2,10 @@
  **一种读取或操作二进制数据流的机制**    
  **Buffer 类在 Node.js 中是一个全局变量，因此无需使用 require('buffer').Buffer。**  
   
-Buffer.from(), Buffer.alloc(), and Buffer.allocUnsafe()    
-  
+
+**在 Node.js v6 之前的版本中，Buffer 实例是通过 Buffer 构造函数创建的，它根据提供的参数返回不同的 Buffer；但是这种方式存在一些问题，详情可参考node文档**  
+在主要使用一下三种方式来达到之前的目的：**Buffer.from(), Buffer.alloc(), and Buffer.allocUnsafe()**
+   
 + 新版node修改了buffer的创建方式  
     - Buffer.from(array) 返回一个新建的包含所提供的字节数组的副本的 Buffer。  
     - Buffer.from(arrayBuffer[, byteOffset [, length]]) 返回一个新建的与给定的 ArrayBuffer 共享同一内存的 Buffer。    
@@ -12,25 +14,29 @@ Buffer.from(), Buffer.alloc(), and Buffer.allocUnsafe()
     - Buffer.alloc(size[, fill[, encoding]]) 返回一个指定大小的被填满的 Buffer 实例。 这个方法会明显地比 Buffer.allocUnsafe(size) 慢，但可确保新创建的 Buffer 实例绝不会包含旧的和潜在的敏感数据。    
     - Buffer.allocUnsafe(size) 与 Buffer.allocUnsafeSlow(size) 返回一个新建的指定 size 的 Buffer，但它的内容必须被初始化，可以使用 buf.fill(0) 或完全写满。  
   
-new Buffer(array)  
-new Buffer(arrayBuffer[, byteOffset [, length]])  
-new Buffer(buffer)  
-new Buffer(size)  
-new Buffer(string[, encoding])  
-类方法：Buffer.alloc(size[, fill[, encoding]])  
-类方法：Buffer.allocUnsafe(size)  
-类方法：Buffer.allocUnsafeSlow(size)  
-类方法：Buffer.byteLength(string[, encoding])  
-类方法：Buffer.compare(buf1, buf2)  
-类方法：Buffer.concat(list[, totalLength])  
-类方法：Buffer.from(array)  
-类方法：Buffer.from(arrayBuffer[, byteOffset[, length]])  
-类方法：Buffer.from(buffer)  
-类方法：Buffer.from(string[, encoding])  
-Class Method: Buffer.from(object[, offsetOrEncoding[, length]])  
-类方法：Buffer.isBuffer(obj)  
-类方法：Buffer.isEncoding(encoding)  
-类属性：Buffer.poolSize  
+## 一下方法在v6 以上版本弃用了（depracated）
+    1. new Buffer(array)  
+    2. new Buffer(arrayBuffer[, byteOffset [, length]])  
+    3. new Buffer(buffer)  
+    4. new Buffer(size)  
+    5. new Buffer(string[, encoding])  
+## 以下方法是当前版本(v8)支持的；
+    类方法：Buffer.alloc(size[, fill[, encoding]])  
+    类方法：Buffer.allocUnsafe(size)  
+    类方法：Buffer.allocUnsafeSlow(size)  
+    类方法：Buffer.byteLength(string[, encoding])  
+    类方法：Buffer.compare(buf1, buf2)  
+    类方法：Buffer.concat(list[, totalLength])  
+    类方法：Buffer.from(array)  
+    类方法：Buffer.from(arrayBuffer[, byteOffset[, length]])  
+    类方法：Buffer.from(buffer)  
+    类方法：Buffer.from(string[, encoding])  
+    Class Method: Buffer.from(object[, offsetOrEncoding[, length]])  
+    类方法：Buffer.isBuffer(obj)  
+    类方法：Buffer.isEncoding(encoding)  
+    类属性：Buffer.poolSize  
+
+
 buf[index]  
 buf.buffer  
 buf.compare(target[, targetStart[, targetEnd[, sourceStart[, sourceEnd]]]])  
