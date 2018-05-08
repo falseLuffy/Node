@@ -6,13 +6,13 @@
 **在 Node.js v6 之前的版本中，Buffer 实例是通过 Buffer 构造函数创建的，它根据提供的参数返回不同的 Buffer；但是这种方式存在一些问题，详情可参考node文档**  
 在主要使用一下三种方式来达到之前的目的：**Buffer.from(), Buffer.alloc(), and Buffer.allocUnsafe()**
    
-    + 新版node修改了buffer的创建方式  
-        - Buffer.from(array) 返回一个新建的包含所提供的字节数组的副本的 Buffer。  
-        - Buffer.from(arrayBuffer[, byteOffset [, length]]) 返回一个新建的与给定的 ArrayBuffer 共享同一内存的 Buffer。    
-        - Buffer.from(buffer) 返回一个新建的包含所提供的 Buffer 的内容的副本的 Buffer。    
-        - Buffer.from(string[, encoding]) 返回一个新建的包含所提供的字符串的副本的 Buffer。    
-        - Buffer.alloc(size[, fill[, encoding]]) 返回一个指定大小的被填满的 Buffer 实例。 这个方法会明显地比 Buffer.allocUnsafe(size) 慢，但可确保新创建的 Buffer 实例绝不会包含旧的和潜在的敏感数据。    
-        - Buffer.allocUnsafe(size) 与 Buffer.allocUnsafeSlow(size) 返回一个新建的指定 size 的 Buffer，但它的内容必须被初始化，可以使用 buf.fill(0) 或完全写满。  
++ 新版node修改了buffer的创建方式  
+    - Buffer.from(array) 返回一个新建的包含所提供的字节数组的副本的 Buffer。  
+    - Buffer.from(arrayBuffer[, byteOffset [, length]]) 返回一个新建的与给定的 ArrayBuffer 共享同一内存的 Buffer。    
+    - Buffer.from(buffer) 返回一个新建的包含所提供的 Buffer 的内容的副本的 Buffer。    
+    - Buffer.from(string[, encoding]) 返回一个新建的包含所提供的字符串的副本的 Buffer。    
+    - Buffer.alloc(size[, fill[, encoding]]) 返回一个指定大小的被填满的 Buffer 实例。 这个方法会明显地比 Buffer.allocUnsafe(size) 慢，但可确保新创建的 Buffer 实例绝不会包含旧的和潜在的敏感数据。    
+    - Buffer.allocUnsafe(size) 与 Buffer.allocUnsafeSlow(size) 返回一个新建的指定 size 的 Buffer，但它的内容必须被初始化，可以使用 buf.fill(0) 或完全写满。  
   
 ## 一下方法在v6 以上版本弃用了（depracated）
     1. new Buffer(array)  
@@ -20,7 +20,7 @@
     3. new Buffer(buffer)  
     4. new Buffer(size)  
     5. new Buffer(string[, encoding])  
-## 以下方法是当前版本(v8)支持的；
+## 以下方法是当前版本(v8)支持的创建buffer 的方式；
     类方法：Buffer.alloc(size[, fill[, encoding]])  
     类方法：Buffer.allocUnsafe(size)  
     类方法：Buffer.allocUnsafeSlow(size)  
@@ -36,11 +36,15 @@
     类方法：Buffer.isEncoding(encoding)  
     类属性：Buffer.poolSize  
 
+<!-- 注释方法这样比其他的方式要好很多啊 -->
+###  可以用学习Array 的思路去学习Buffer，api大致可以分类为索引，对比，读取,新增，修改，拼接
+## Buffer 的操作api
 
-buf[index]  
-buf.buffer  
+buf[index]  获取或设置 buf 中指定 index 位置的八位字节  
+
+buf.buffer  buffer 属性指向创建该 Buffer 的底层的 ArrayBuffer 对象。  
 buf.compare(target[, targetStart[, targetEnd[, sourceStart[, sourceEnd]]]])  
-buf.copy(target[, targetStart[, sourceStart[, sourceEnd]]])  
+buf.copy(target[, targetStart[, sourceStart[, sourceEnd]]])    拷贝 buf 的一个区域的数据到 target 的一个区域
 buf.entries()  
 buf.equals(otherBuffer)  
 buf.fill(value[, offset[, end]][, encoding])  
